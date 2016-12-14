@@ -1,0 +1,58 @@
+.pages-stack {
+	z-index: 100;
+	pointer-events: none;
+	perspective: 1200px;
+	perspective-origin: 50% -50%;
+}
+
+.page {
+	position: relative;
+	z-index: 5;
+	overflow: hidden;
+	width: 100%;
+	height: 100vh;
+	pointer-events: auto;
+	background: #2ED686;
+	box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pages-stack--open .page {
+	cursor: pointer;
+	transition: transform 0.45s, opacity 0.45s;
+	transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.page--inactive {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	opacity: 0;
+}
+
+.pages-stack--closed {
+
+}
+
+.pages-nav--open {
+	pointer-events: auto;
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+
+.pages-nav--close {
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 150px, 0);
+}
+
+.pages-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50vh;
+	padding: 30px;
+	background: transparent;
+	transition: transform 1.2s, opacity 1.2s;
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}

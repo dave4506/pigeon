@@ -8,10 +8,13 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+html, body {
+  overflow: hidden;
+	height: 100vh;
+  background-color: #141931;
+}
+
 @media screen and (max-width: 1024px) {
-
   .content {
-    padding: 0 16px;
   }
-
 }

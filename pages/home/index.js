@@ -9,34 +9,46 @@
  */
 
 import React, { PropTypes } from 'react';
-import Layout from '../../components/Layout';
 import s from './styles.css';
-import { title, html } from './index.md';
+import Parent from '../../components/PageStack/parent';
+import Category from '../../components/CategoryList/category';
+
+const nav = (category,newCategory,filter,newFilter) => {
+  return (
+    <div>
+      <Category onClick={(link)=>{newCategory(link)}} links={["Upvoted","Latest","Popular","Yours"]} active={category || "Upvoted"}/>
+      <Category onClick={(link)=>{newFilter(link)}} links={["No Profanity","Only Profanity","Give it all","Supa Big Words"]} active={filter || "Give it all"}/>
+    </div>
+  )
+}
 
 class HomePage extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state={
+      category:"",
+      filter:""
+    }
+  }
+
   static propTypes = {
-    articles: PropTypes.array.isRequired,
-  };
+  }
 
   componentDidMount() {
-    document.title = title;
   }
 
   render() {
-    return (
-      <Layout className={s.content}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-        <h4>Articles</h4>
-        <ul>
-          {this.props.articles.map((article, i) =>
-            <li key={i}><a href={article.url}>{article.title}</a> by {article.author}</li>
-          )}
-        </ul>
-        <p>
-          <br /><br />
-        </p>
-      </Layout>
+    const {} = this.props
+    const {category,filter} = this.state;
+     return (
+      <div>
+        <Parent nav={nav(category,(link)=>{this.setState({category:link})},filter,(link)=>{this.setState({filter:link})})}>
+          <div key="quote">
+          </div>
+          <div key="create"></div>
+        </Parent>
+      </div>
     );
   }
 

@@ -1,0 +1,22 @@
+.quote-create {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20em auto 0 auto;
+}
+
+.quote-create input {
+  display: block;
+  background: transparent;
+  border:none;
+}
+
+.quote-create input:hover,
+.quote-create input:focus {
+  outline: none;
+}
+
+.quote-create__description * {
+  display: inline;
+  padding: 0 5px;
+}

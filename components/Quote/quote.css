@@ -1,0 +1,23 @@
+.quote {
+  padding: 20px 0;
+}
+
+.quote__description * {
+  display: inline;
+  padding: 0 5px;
+}
+
+.quote-list {
+  position: relative;
+  display: block;
+  margin: 20em auto 0 auto;
+  width: 60vw;
+}
+
+.quote-list .quote {
+  height:25vh;
+  position: absolute;
+  top:0;
+  transition: transform 1.2s, opacity 1.2s;
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}

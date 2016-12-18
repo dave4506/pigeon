@@ -137,7 +137,7 @@ class Parent extends React.Component {
       <div>
         <MenuButton onClick={this.menuClick} status={status == "openMenu" ? "open":"closed"}/>
         <div className={`${classes.nav} ${s["pages-nav"]}`}>
-          {nav}
+          {nav(this.openPage)}
         </div>
         <div className={`${s["pages-stack"]} ${classes.stack}`}>
           {(children || []).map((c)=>{

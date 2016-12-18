@@ -1,0 +1,9 @@
+.button-simple {
+  opacity:0.6;
+  transition: opacity 0.45s;
+}
+
+.button-simple:hover,
+.button-simple:focus {
+  opacity:1;
+}

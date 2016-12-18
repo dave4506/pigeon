@@ -8,7 +8,7 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import { createStore } from 'redux';
+import { createStore,combineReducers } from 'redux';
 
 // Centralized application state
 // For more information visit http://redux.js.org/

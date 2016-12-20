@@ -14,11 +14,23 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
+import firebase from 'firebase';
+
 import { Provider } from 'react-redux';
 
 import store from './core/store';
 import router from './core/router';
 import history from './core/history';
+
+var config = {
+  apiKey: "AIzaSyBYIgtI10T_XsafulCN_CAyI6Er9jehvcI",
+  authDomain: "pigeon-f4c04.firebaseapp.com",
+  databaseURL: "https://pigeon-f4c04.firebaseio.com",
+  storageBucket: "pigeon-f4c04.appspot.com",
+  messagingSenderId: "729147222696"
+};
+
+firebase.initializeApp(config);
 
 let routes = require('./routes.json'); // Loaded with utils/routes-loader.js
 const container = document.getElementById('container');

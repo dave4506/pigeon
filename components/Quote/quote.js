@@ -15,10 +15,10 @@ class Quote extends React.Component {
   }
 
   render() {
-    const {quote,author,upvotes,upvoted,style} = this.props;
+    const {text,author,upvotes,upvoted,style} = this.props;
     return (
       <div style={style} className={`${s["quote"]}`}>
-        <h1 className={`${s["quote__content"]}`}>{quote}</h1>
+        <h1 className={`${s["quote__content"]}`}>{text}</h1>
         <span className={`${s["quote__description"]}`}>
           <p>-{author}</p>
           <p> {upvotes || 0} upvotes</p>

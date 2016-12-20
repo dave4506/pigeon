@@ -14,11 +14,11 @@ class SBtn extends React.Component {
   }
 
   render() {
-    const {onClick,children} = this.props;
+    const {onClick,children,disabled} = this.props;
     return (
-      <div onClick={onClick} className={`${s["button-simple"]}`}>
+      <button disabled={disabled} onClick={onClick} className={`${s["button-simple"]}`}>
         {children}
-      </div>
+      </button>
     );
   }
 

@@ -30,6 +30,15 @@ class Parent extends React.Component {
 
   }
 
+  componentWillReceiveProps(nextProps) {
+    const {newStatus} = nextProps;
+    if(props.newStatus != newStatus)
+      if(newStatus.execute == "openPage")
+        this.openPage(newStatus.pageIndex);
+      else
+        this.openMenu();
+  }
+
   openPage(key) {
     if(this.state.status == "openMenu") {
       var newState = {status:"openPage",currentPageIndex:key};

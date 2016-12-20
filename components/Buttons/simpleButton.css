@@ -1,9 +1,23 @@
 .button-simple {
   opacity:0.6;
   transition: opacity 0.45s;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border:none;
+}
+
+.button-simple:disabled {
+  opacity:0.4;
+}
+
+.button-simple:disabled:hover,
+.button-simple:disabled:focus {
+  opacity:0.4;
 }
 
 .button-simple:hover,
 .button-simple:focus {
   opacity:1;
+  outline: none;
 }

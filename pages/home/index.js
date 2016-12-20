@@ -9,13 +9,13 @@
  */
 
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux'
 import s from './styles.css';
 import Parent from '../../components/PageStack/parent';
 import Category from '../../components/CategoryList/category';
-import QuoteList from '../../components/Quote/quoteList';
-import Quote from '../../components/Quote/quote';
-import CreateQuote from '../../components/Quote/createQuote';
 import ABtn from '../../components/Buttons/arrowButton';
+import CreateQuotePage from '../../components/Pages/createQuote';
+import QuotePage from '../../components/Pages/quote.js'
 
 var raw_quotes = [{
     id:1,
@@ -67,64 +67,31 @@ class HomePage extends React.Component {
     this.state={
       category:"",
       filter:"",
-      timer:null,
-      quotes:[],
       shifted:false
     }
-    this.nextQuote = this.nextQuote.bind(this);
-    this.prevQuote = this.prevQuote.bind(this)
   }
 
   static propTypes = {
   }
 
-  componentWillUnmount() {
-    clearInterval(this.state.timer);
-  }
   componentWillMount() {
-    this.setState({quotes:raw_quotes})
-  }
-
-  nextQuote() {
-    var newQuotes = this.state.quotes.slice();
-    var firstQuote = newQuotes.shift();
-    newQuotes.push(firstQuote);
-    return newQuotes
-  }
-
-  prevQuote() {
-
+    this.setState({quote:raw_quotes[0]})
   }
 
   componentDidMount() {
-    const timer = setInterval(()=>{
-      if(!this.state.shifted)
-        this.setState({quotes:this.nextQuote(),shifted:false})
-      else
-        this.setState({shifted:false})
-    },10000)
-    this.setState({timer})
-  }
-
-  quoteLoop() {
-
   }
 
   render() {
     const {} = this.props
-    const {category,filter,quotes} = this.state;
+    const {category,filter,quote} = this.state;
      return (
       <div>
-        <Parent nav={nav(category,(link)=>{this.setState({category:link})},filter,(link)=>{this.setState({filter:link})})}>
+        <Parent newStatus={{}} nav={nav(category,(link)=>{this.setState({category:link})},filter,(link)=>{this.setState({filter:link})})}>
           <div key="quote">
-            <QuoteList quotes={quotes}/>
+            <QuotePage/>
           </div>
           <div key="create">
-            <CreateQuote status="profanity"/>
-            <div className={`${s["idea"]}`}>
-              <p>Idea of the Day</p>
-              <Quote quote="Good ideas goes here" author="dave4506" upvotes="0" upvoted={false}/>
-            </div>
+            <CreateQuotePage/>
           </div>
         </Parent>
       </div>
@@ -132,5 +99,6 @@ class HomePage extends React.Component {
   }
 
 }
+
 
 export default HomePage;

@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Pigeon",
+  "author": "Download Horizons",
+  "description": "The messenger pigeon from your favorite sources.",
+  "version": "1.0",
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "16":"icons/icon-16.png",
+    "48":"icons/icon-48.png",
+    "128":"icons/icon-128.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon.png"
+  }
+}

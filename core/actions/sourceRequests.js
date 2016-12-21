@@ -60,7 +60,7 @@ const fetchNy = (category) => {
 }
 
 const fetchReddit = (category,subreddit) => {
-  return fetch(`http://www.reddit.com/r/${subreddit}/${category}/.json?limit=50`)
+  return fetch(`https://www.reddit.com/r/${subreddit}/${category}/.json?limit=50`)
     .then(checkStatus)
     .then(parseJSON)
     .then((topics) => {
@@ -117,7 +117,9 @@ const testRequest = (sourceKey,source) => {
 }
 
 const sourceRequest = (sourceKey,source) => {
-  const params = source.selectedParams;
+  var params = null
+  if(source)
+     params = source.selectedParams;
   switch (sourceKey) {
     case "quotes":
       return fetchQuote(params.category.select);

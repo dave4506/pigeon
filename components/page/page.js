@@ -34,7 +34,7 @@ class Page extends React.Component {
             return <Quote text={quote.text} subtext={quote.subtext}/>
         })()}
         <div className={`${s["page-gradient"]}`}></div>
-        <img className={`${s["page-background-image"]} ${s["page-background-image__"+(backgroundLoaded ? "loaded":"empty")]}`} onLoad={()=>{this.setState({backgroundLoaded:true})}} src="https://source.unsplash.com/category/nature/1600x900"/>
+        <img className={`${s["page-background-image"]} ${s["page-background-image__"+(backgroundLoaded ? "loaded":"empty")]}`} onLoad={()=>{this.setState({backgroundLoaded:true})}} src="https://source.unsplash.com/category/nature/2560x1600"/>
       </div>
     )
   }

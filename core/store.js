@@ -21,8 +21,14 @@ if (process.env.NODE_ENV === `development`) {
   middlewares.push(logger);
 }
 
+const cookieState = Cookie.get('state');
 
-const store = createStore(reducer,JSON.parse(Cookie.get('state')),applyMiddleware(...middlewares));
+var store = null;
+
+if(cookieState)
+  store = createStore(reducer,JSON.parse(cookieState),applyMiddleware(...middlewares));
+else
+  store = createStore(reducer,applyMiddleware(...middlewares));
 
 store.getState();
 

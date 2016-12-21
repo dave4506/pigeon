@@ -3,5 +3,10 @@
     "path": "/",
     "page": "./pages/home",
     "chunk": "main"
+  },
+  {
+    "path": "/error",
+    "page": "./pages/error",
+    "chunk": "main"
   }
 ]

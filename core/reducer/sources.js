@@ -59,6 +59,30 @@ const defaultState = {
         default:"home"
       }
     }
+  },
+  hackerNews:{
+    enable:false,
+    publicTitle:"Hacker News",
+    selectedParams:{
+      category:{
+        select:"top"
+      }
+    },
+    params:{
+      category:{
+        type:"category",
+        categories:["top","best","new"],
+        default:"top"
+      }
+    }
+  },
+  designerNews:{
+    enable:false,
+    publicTitle:"Designer News",
+    selectedParams:{
+    },
+    params:{
+    }
   }
 }
 

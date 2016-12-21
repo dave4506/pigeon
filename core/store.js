@@ -25,4 +25,6 @@ if (process.env.NODE_ENV === `development`) {
 
 const store = createStore(reducer,applyMiddleware(...middlewares));
 
+store.getState();
+
 export default store;

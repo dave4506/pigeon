@@ -12,10 +12,9 @@ import React, { PropTypes } from 'react';
 import s from './styles.css';
 import Page from '../../components/page/page';
 import SideBarComp from './sidebar';
-import Sidebar from '../../components/sidebar/sidebar'
+import Sidebar from '../../components/sidebar/sidebar';
 
 const mainPage = (onMenuClick,menuStatus) => {
-
   return (
     <Page menuStatus={menuStatus} onMenuClick={onMenuClick}/>
   )

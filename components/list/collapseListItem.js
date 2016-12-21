@@ -14,14 +14,14 @@ class CollapseListItem extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+  if(nextProps.accordion != null)
     if(this.state.accordion != nextProps.accordion)
       this.setState({accordion:nextProps.accordion})
   }
 
   render() {
     const {children,menuStatus,title} = this.props;
-    const {accordion,height} = this.state;
-
+    const {accordion} = this.state;
     return (
       <ListItem>
         <div className={`${s["list-collapseItem"]}`}>

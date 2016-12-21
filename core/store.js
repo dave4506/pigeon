@@ -12,9 +12,8 @@ import { createStore,applyMiddleware } from 'redux';
 import reducer from './reducer'
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
+import Cookie from 'js-cookie';
 
-// Centralized application state
-// For more information visit http://redux.js.org/
 const middlewares = [thunk];
 
 if (process.env.NODE_ENV === `development`) {
@@ -23,8 +22,12 @@ if (process.env.NODE_ENV === `development`) {
 }
 
 
-const store = createStore(reducer,applyMiddleware(...middlewares));
+const store = createStore(reducer,JSON.parse(Cookie.get('state')),applyMiddleware(...middlewares));
 
 store.getState();
+
+store.subscribe(() => {
+  Cookie.set('state',store.getState())
+})
 
 export default store;

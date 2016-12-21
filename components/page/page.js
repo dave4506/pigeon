@@ -24,12 +24,15 @@ class Page extends React.Component {
   }
 
   render() {
-    const {onMenuClick,menuStatus,quote} = this.props;
+    const {onMenuClick,menuStatus,quote,quoteStatus} = this.props;
     const {backgroundLoaded} = this.state;
     return (
       <div className={`${s["page"]}`}>
         <Nav onCheck={(e)=>{this.openInNewTab(quote.link)}} onMenuClick={onMenuClick} menuStatus={menuStatus} title={quote.source}/>
-        <Quote text={quote.text} subtext={quote.subtext}/>
+        {(()=>{
+          if(quoteStatus == "complete")
+            return <Quote text={quote.text} subtext={quote.subtext}/>
+        })()}
         <div className={`${s["page-gradient"]}`}></div>
         <img className={`${s["page-background-image"]} ${s["page-background-image__"+(backgroundLoaded ? "loaded":"empty")]}`} onLoad={()=>{this.setState({backgroundLoaded:true})}} src="https://source.unsplash.com/category/nature/1600x900"/>
       </div>
@@ -39,7 +42,8 @@ class Page extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    quote: state.quote
+    quote: state.quote,
+    quoteStatus: state.ui.QUOTE
   }
 }
 

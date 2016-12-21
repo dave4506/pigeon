@@ -5,7 +5,7 @@ import {
 
 const defaultState = {
   quotes:{
-    enable:false,
+    enable:true,
     publicTitle:"Cool Quotes",
     selectedParams:{
       category:{
@@ -21,15 +21,14 @@ const defaultState = {
     }
   },
   reddit:{
-    enable:true,
+    enable:false,
     publicTitle:"Reddit Hot",
     selectedParams:{
       category:{
         select:"hot"
       },
       subreddit:{
-        indicator:"success",
-        value:"corridor"
+        select:"news"
       }
     },
     params:{
@@ -39,9 +38,9 @@ const defaultState = {
         default:"hot"
       },
       subreddit:{
-        type:"search",
-        placeholder:"Ex. starcraft, cool_stuff",
-        minLength:1
+        type:"category",
+        categories:["AskReddit","Showerthoughts","news","todayilearned","science","IAmA","starcraft","worldnews"],
+        default:"news"
       }
     }
   },

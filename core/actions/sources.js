@@ -45,6 +45,12 @@ const onlyEnable = (obj) => {
 
 export const pullQuote = () => {
   return (dispatch,getState) => {
+    dispatch((()=>{
+      return {
+        type:PULL_QUOTE,
+        status:"loading"
+      }
+    })())
     const {sources} = getState();
     const sourceKey = randomProperty(onlyEnable(sources));
     const source = sources[sourceKey]
@@ -52,7 +58,8 @@ export const pullQuote = () => {
       dispatch((()=>{
         return {
           type:PULL_QUOTE,
-          quote
+          quote,
+          status:"complete"
         }
       })())
     })
@@ -63,15 +70,8 @@ export const testNewSource = (sourceKey,category) => {
   return (dispatch,getState) => {
     const {sources} = getState();
     const source = sources[sourceKey]
-    return testRequest(sourceKey,source).then((quote)=>{
-      if(quote == null)
-        return sourceRequest(sourceKey,source)
-      else
-        return quote;
-    }).then((quote)=>{
-      if(quote === false)
-        dispatch(updateSource(sourceKey,category,{indicator:"error"}))
-      dispatch(updateSource(sourceKey,category,{indicator:"success"}))
+    return testRequest(sourceKey,source).then((valid)=>{
+      dispatch(updateSource(sourceKey,category,{indicator:valid ? "success":"error"}))
     }).catch((ex) => {
       dispatch(updateSource(sourceKey,category,{indicator:"error"}))
     })

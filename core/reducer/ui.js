@@ -1,19 +1,16 @@
 import {
-
+  PULL_QUOTE
 } from "../constants"
 
 const defaultState = {
-  USER_SETTINGS:"INIT",
-  USER_DATA:"INIT",
-  QUOTE:"INIT",
-  CREATE_QUOTE:"NONE",
-  LOCAL_QUOTE_STATUS:{qualify:false,publicStatus:"GET SOME WORDS DOWN"},
-  UPVOTE:"INIT"
+  QUOTE:"INIT"
 }
 
 
 export default function(state={},action) {
   switch (action.type) {
+    case PULL_QUOTE:
+      return Object.assign({},{QUOTE:action.status})
     default:
       return state;
   }

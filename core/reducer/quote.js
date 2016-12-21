@@ -12,7 +12,8 @@ const defaultState = {
 export default function(state=defaultState,action) {
   switch (action.type) {
     case PULL_QUOTE:
-      return action.quote;
+      if(action.status == "complete")
+        return action.quote;
     default:
       return state;
   }

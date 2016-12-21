@@ -14,7 +14,7 @@ import AccordTags from '../../components/accordion/tag'
 import AccordInput from '../../components/accordion/input'
 import Footer from '../../components/list/footer'
 
-import {changeSourceSubscription,updateSource} from '../../core/actions/sources'
+import {changeSourceSubscription,updateSource,testNewSource} from '../../core/actions/sources'
 
 class SideBarComp extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class SideBarComp extends React.Component {
     this.state = {help:false}
   }
   render () {
-    const {sources,enableSource,disableSource,updateSource} = this.props;
+    const {sources,enableSource,disableSource,updateSource,testNewSource} = this.props;
     const {help} = this.state;
     return (
       <List help={help}>
@@ -39,7 +39,7 @@ class SideBarComp extends React.Component {
                   if(param.type=="category")
                     return <AccordTags onClick={(t)=>{updateSource(s,p,{select:t})}} key={p} help={help} tags={param.categories} selected={userParams.select || param.default} title={p}/>
                   if(param.type=="search")
-                    return <AccordInput onChange={(t)=>{updateSource(s,p,{value:t})}} key={p} help={help} value={userParams.value} submittable={userParams.indicator=="success"} indicator={userParams.indicator} title={p} placeholder={param.placeholder}/>
+                    return <AccordInput onSubmit={()=>{testNewSource(s,p)}} onChange={(t)=>{updateSource(s,p,{value:t})}} key={p} help={help} value={userParams.value} submittable={userParams.indicator=="default"} indicator={userParams.indicator} title={p} placeholder={param.placeholder}/>
                 })}
                 <AccordBtn onClick={()=>{disableSource(s)}} btnType="danger">Disable</AccordBtn>
               </CollapseListItem>
@@ -77,6 +77,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     updateSource: (source,category,update) => {
       dispatch(updateSource(source,category,update));
+    },
+    testNewSource: (source,category) => {
+      dispatch(testNewSource(source,category));
     }
   }
 }

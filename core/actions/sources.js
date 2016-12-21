@@ -1,5 +1,5 @@
 import {CHANGE_SOURCE_SUBSCRIPTION,UPDATE_SOURCE,PULL_QUOTE} from '../constants'
-import sourceRequest from './sourceRequests'
+import {sourceRequest,testRequest} from './sourceRequests'
 
 export const changeSourceSubscription = (source,newEnable) => {
   return {
@@ -12,7 +12,7 @@ export const changeSourceSubscription = (source,newEnable) => {
 export const updateSource = (source,category,selectedParams) => {
   return (dispatch,getState) => {
     const params = ((getState().sources)[source].params)[category];
-    if(params.type == "search")
+    if(params.type == "search" && selectedParams.value)
       if(selectedParams.value.length <= params.minLength)
         selectedParams.indicator = "disable";
       else
@@ -55,6 +55,25 @@ export const pullQuote = () => {
           quote
         }
       })())
+    })
+  }
+}
+
+export const testNewSource = (sourceKey,category) => {
+  return (dispatch,getState) => {
+    const {sources} = getState();
+    const source = sources[sourceKey]
+    return testRequest(sourceKey,source).then((quote)=>{
+      if(quote == null)
+        return sourceRequest(sourceKey,source)
+      else
+        return quote;
+    }).then((quote)=>{
+      if(quote === false)
+        dispatch(updateSource(sourceKey,category,{indicator:"error"}))
+      dispatch(updateSource(sourceKey,category,{indicator:"success"}))
+    }).catch((ex) => {
+      dispatch(updateSource(sourceKey,category,{indicator:"error"}))
     })
   }
 }

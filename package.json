@@ -12,6 +12,7 @@
     "del": "^2.2.2",
     "fastclick": "^1.0.6",
     "history": "^3.0.0",
+    "is-subreddit": "0.0.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-mdl": "^1.6.1",

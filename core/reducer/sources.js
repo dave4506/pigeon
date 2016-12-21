@@ -21,32 +21,32 @@ const defaultState = {
     }
   },
   reddit:{
-    enable:false,
+    enable:true,
     publicTitle:"Reddit Hot",
     selectedParams:{
       category:{
-        select:"home"
+        select:"hot"
       },
       subreddit:{
         indicator:"success",
-        value:"starcraft"
+        value:"corridor"
       }
     },
     params:{
       category:{
         type:"category",
-        categories:["Popular","Hot","Opinion"],
-        default:"Popular"
+        categories:["hot","new","random","rising"],
+        default:"hot"
       },
       subreddit:{
         type:"search",
         placeholder:"Ex. starcraft, cool_stuff",
-        minLength:2
+        minLength:1
       }
     }
   },
   nyTimes:{
-    enable:true,
+    enable:false,
     publicTitle:"NYTimes Headlines",
     selectedParams:{
       category:{

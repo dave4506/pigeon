@@ -1,0 +1,112 @@
+.accordion-title {
+  padding: 0.6rem 2.1rem;
+  color:white;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+}
+
+
+.accordion-title-sub {
+  font-size: 0.6rem;
+  opacity: 0.5;
+  padding-left: 0.5rem;
+}
+
+.accordion-button {
+  cursor: pointer;
+  padding: 0.6rem 2.1rem;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  text-align: center;
+  opacity: 0.8;
+  transition: opacity 500ms cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.accordion-button:hover {
+  opacity: 1;
+  transform:scale(1.1);
+}
+
+.accordion-tags {
+  padding: 0.2rem 2.1rem;
+  display: flex;
+  max-width: 100%;
+  font-size: 0.7rem;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  color:white;
+}
+
+
+.accordion-tag {
+  cursor: pointer;
+  text-align: center;
+  padding: 0.6rem;
+  margin: 0.4rem 0.8rem 0.4rem 0;
+  transform:scale(1);
+  transition: transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.accordion-tag:hover {
+  transform:scale(1.1);
+}
+
+.accordion-input {
+  display: flex;
+  align-items: center;
+  margin: 0.2rem 2.1rem;
+  background-color: #0A1B22;
+}
+
+.accordion-input input {
+  flex-grow: 1;
+  background: transparent;
+  padding: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color:white;
+  background-color: #0A1B22;
+  border: none;
+  display: block;
+}
+
+.accordion-input .accordion-enter {
+  padding: 0 0.8rem;
+  transition: transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.accordion-input .accordion-enter__disable {
+  opacity: 0.5;
+}
+
+.accordion-input .accordion-enter__enable:hover {
+  transform:scale(1.2);
+}
+
+.accordion-input .accordion-enter__enable {
+  opacity: 1;
+}
+
+.accordion-input input::-webkit-input-placeholder {
+  color:white;
+  opacity:0.4;
+}
+
+
+.accordion-input input:focus {
+  outline: none;
+}
+
+.accordion-tag__not-selected {
+  background-color: #0A1B22;
+  z-index: 99;
+}
+
+.accordion-tag__selected {
+  z-index: 100;
+  color: #0A1B22;
+  background-color: white;
+}

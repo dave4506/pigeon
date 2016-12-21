@@ -1,0 +1,53 @@
+.quote {
+  position: absolute;
+  bottom:9rem;
+  left:10rem;
+  right:10rem;
+  color:white;
+  opacity: 0.9;
+  transition: opacity 500ms cubic-bezier(0.2, 1, 0.3, 1);;
+}
+
+.quote:hover {
+  opacity: 1;
+}
+
+.quote:hover .quote-headline {
+  transform:translate3d(0,0,0) scale(1.2);
+}
+
+.quote-headline {
+  color:white;
+  margin: 0;
+  padding: 2rem 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  transition: transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+  transform-origin: left;
+  transform:translate3d(-30px,0,0) scale(1);
+}
+
+.quote-subtext {
+  margin: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.fade-up {
+  animation-name: fadeUp;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  animation-duration: 1.50s;
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(100%);
+    opacity:0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity:0.9;
+  }
+}

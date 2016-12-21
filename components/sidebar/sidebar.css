@@ -1,0 +1,33 @@
+.menu {
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  overflow: hidden;
+}
+
+.menu-sidebar {
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  width: 30%;
+  overflow-x: visible;
+  background-color: #14222B;
+  transition: transform 0.5s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+  transform:translate3d(-100%,0,0);
+}
+
+.menu-sidebar__open {
+  transform:translate3d(0,0,0);
+}
+
+.menu-main-content {
+  transition: transform 0.5s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+  transform:translate3d(0,0,0);
+}
+
+.menu-main-content__open {
+  transform:translate3d(30%,0,0);
+}

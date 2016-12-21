@@ -1,0 +1,76 @@
+.navbar {
+  position: absolute;
+  top:5rem;
+  left:10rem;
+  right:10rem;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:white;
+}
+
+.navbar-title {
+  margin: auto;
+  position: absolute;
+  width: 50%;
+  text-align: center;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  font-weight: 400;
+}
+
+.navbar-checkout {
+  color: white;
+  transform: scale(1);
+  transition: transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.navbar-checkout:hover {
+  transform: scale(1.2);
+}
+
+.fade-up {
+  animation-name: fadeUp;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  animation-duration: 1.50s;
+}
+
+.navbar-menu {
+  cursor: pointer;
+  transition: transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.navbar-menu__open {
+  transform: rotate(180deg) scale(1);
+}
+
+.navbar-menu__open:hover {
+  transform: rotate(180deg) scale(1.2);
+}
+
+.navbar-menu__close {
+  transform: rotate(0deg) scale(1);
+}
+
+.navbar-menu__close:hover {
+  transform: scale(1.2);
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(100%);
+    opacity:0;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity:0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity:1;
+  }
+}

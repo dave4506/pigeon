@@ -10,9 +10,9 @@ const generateFontSize = (text) => {
   if(length>=150)
     return '2rem';
 }
-const Quote = ({text,subtext}) => {
+const Quote = ({text,subtext,onClick}) => {
   return (
-    <div className={`${s["quote"]} ${s["fade-up"]}`}>
+    <div onClick={onClick} className={`${s["quote"]} ${s["fade-up"]}`}>
       <h1 style={{fontSize:generateFontSize(text)}} className={`${s["quote-headline"]}`}>{text}</h1>
       <h4 className={`${s["quote-subtext"]}`}>{subtext}</h4>
     </div>

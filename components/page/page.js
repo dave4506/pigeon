@@ -31,7 +31,7 @@ class Page extends React.Component {
         <Nav onCheck={(e)=>{this.openInNewTab(quote.link)}} onMenuClick={onMenuClick} menuStatus={menuStatus} title={quote.source}/>
         {(()=>{
           if(quoteStatus == "complete")
-            return <Quote text={quote.text} subtext={quote.subtext}/>
+            return <Quote text={quote.text} subtext={quote.subtext} onClick={()=>{this.openInNewTab(quote.link)}} />
         })()}
         <div className={`${s["page-gradient"]}`}></div>
         <img className={`${s["page-background-image"]} ${s["page-background-image__"+(backgroundLoaded ? "loaded":"empty")]}`} onLoad={()=>{this.setState({backgroundLoaded:true})}} src="https://source.unsplash.com/category/nature/1600x900"/>

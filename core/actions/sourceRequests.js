@@ -64,6 +64,8 @@ const fetchReddit = (category,subreddit) => {
     .then(checkStatus)
     .then(parseJSON)
     .then((topics) => {
+      if(category == "random")
+        topics = topics[0]
       const {data} = randomInArray(topics.data.children)
       const {author,subreddit,title,permalink} = data;
       return {

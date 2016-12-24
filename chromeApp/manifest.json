@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Pigeon",
   "author": "Download Horizons",
-  "description": "The messenger pigeon from your favorite sources.",
-  "version": "1.0",
+  "description": "The messenger pigeon for your favorite sources.",
+  "version": "1.1",
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "chrome_url_overrides" : {
     "newtab": "index.html"

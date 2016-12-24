@@ -14,8 +14,6 @@ const fs = require('fs');
 const del = require('del');
 const ejs = require('ejs');
 const webpack = require('webpack');
-const ghpages = require('gh-pages');
-const path = require('path');
 
 // TODO: Update configuration settings
 const config = {
@@ -109,7 +107,8 @@ tasks.set('publish', () => {
 });
 
 tasks.set('publishL', () => {
-  const firebase = require('firebase-tools');
+  const ghpages = require('gh-pages');
+  const path = require('path');
   return ghpages.publish(path.join(__dirname, 'pigeon_landing'), function(err) { console.log(err) });
 });
 
